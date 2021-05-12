@@ -1,4 +1,5 @@
 
+import { fireEvent } from "@testing-library/dom";
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils"
 import Radio from './radio'
@@ -23,16 +24,16 @@ it("changes color when clicked", ()=>{
     expect(container.textContent).toBe("text");
     const radio1 = document.querySelector("#rad1");
     const radio2 = document.querySelector("#rad2");
-
-    act(()=>{
-      radio1.dispatchEvent(new MouseEvent("click", { bubbles: true}));
-    });
-    expect(container).toMatchSnapshot();
-    act(()=>{
-      radio2.dispatchEvent(new MouseEvent("Click", {bubbles: true}));
-    })
-    expect(container).toMatchSnapshot();
-
-
     
+    act(()=>{
+      fireEvent.click(radio1)
+    });
+    expect(radio1).toBeChecked();
+    expect(radio2).not.toBeChecked();
+
+    act(()=>{ 
+      fireEvent.click(radio2)
+    });
+    expect(radio1).not.toBeChecked();
+    expect(radio2).toBeChecked();  
 })
