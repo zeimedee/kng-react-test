@@ -22,6 +22,7 @@ it("radio button one clicked", ()=>{
       render(<Radio />, container)
     });
     expect(container.textContent).toBe("text");
+    const text = document.querySelector('#text')
     const radio1 = document.querySelector("#rad1");
     const radio2 = document.querySelector("#rad2");
     
@@ -30,6 +31,7 @@ it("radio button one clicked", ()=>{
     });
     expect(radio1).toBeChecked();
     expect(radio2).not.toBeChecked();
+    expect(text).toHaveStyle("color: red")
 
     
 })
@@ -38,7 +40,7 @@ it("radio button 2 clicked",()=>{
   act(()=>{
     render(<Radio />, container)
   });
-
+  const text = document.querySelector('#text')
   const radio1 = document.querySelector("#rad1");
   const radio2 = document.querySelector("#rad2");
 
@@ -47,4 +49,5 @@ it("radio button 2 clicked",()=>{
   });
   expect(radio1).not.toBeChecked();
   expect(radio2).toBeChecked();  
+  expect(text).toHaveStyle("color: green")
 })
