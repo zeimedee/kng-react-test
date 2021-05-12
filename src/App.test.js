@@ -1,5 +1,5 @@
 
-import { fireEvent } from "@testing-library/dom";
+import { fireEvent } from "@testing-library/react";
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils"
 import Radio from './radio'
@@ -17,7 +17,7 @@ afterEach(()=>{
   container = null;
 });
 
-it("changes color when clicked", ()=>{
+it("radio button one clicked", ()=>{
     act(()=>{
       render(<Radio />, container)
     });
@@ -31,9 +31,20 @@ it("changes color when clicked", ()=>{
     expect(radio1).toBeChecked();
     expect(radio2).not.toBeChecked();
 
-    act(()=>{ 
-      fireEvent.click(radio2)
-    });
-    expect(radio1).not.toBeChecked();
-    expect(radio2).toBeChecked();  
+    
+})
+
+it("radio button 2 clicked",()=>{
+  act(()=>{
+    render(<Radio />, container)
+  });
+
+  const radio1 = document.querySelector("#rad1");
+  const radio2 = document.querySelector("#rad2");
+
+  act(()=>{ 
+    fireEvent.click(radio2)
+  });
+  expect(radio1).not.toBeChecked();
+  expect(radio2).toBeChecked();  
 })
