@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changes color when clicked 1`] = `
+<div>
+  <div>
+    <h1
+      id="text"
+      style="color: red;"
+    >
+      text
+    </h1>
+    <input
+      checked=""
+      id="rad1"
+      name="b1"
+      type="radio"
+    />
+    <input
+      id="rad2"
+      name="b2"
+      type="radio"
+    />
+  </div>
+</div>
+`;
+
+exports[`changes color when clicked 2`] = `
+<div>
+  <div>
+    <h1
+      id="text"
+      style="color: red;"
+    >
+      text
+    </h1>
+    <input
+      checked=""
+      id="rad1"
+      name="b1"
+      type="radio"
+    />
+    <input
+      id="rad2"
+      name="b2"
+      type="radio"
+    />
+  </div>
+</div>
+`;
